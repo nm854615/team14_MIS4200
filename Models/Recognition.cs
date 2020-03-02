@@ -6,7 +6,7 @@ using System.Web;
 
 namespace team14_MIS4200.Models
 {
-    public class Recogtition
+    public class Recognition
     {
         public int recognitionID { get; set; }
         [Display(Name = "Employee First Name")]
