@@ -11,107 +11,107 @@ using team14_MIS4200.Models;
 
 namespace team14_MIS4200.Controllers
 {
-    public class EmployeesController : Controller
+    public class RecognitionsController : Controller
     {
         private MIS4200Context db = new MIS4200Context();
 
-        // GET: Employees
+        // GET: Recognitions
         public ActionResult Index()
         {
-            return View(db.Orders.ToList());
+            return View(db.Customers.ToList());
         }
 
-        // GET: Employees/Details/5
+        // GET: Recognitions/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Employee employee = db.Orders.Find(id);
-            if (employee == null)
+            Recognition recognition = db.Customers.Find(id);
+            if (recognition == null)
             {
                 return HttpNotFound();
             }
-            return View(employee);
+            return View(recognition);
         }
 
-        // GET: Employees/Create
+        // GET: Recognitions/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Employees/Create
+        // POST: Recognitions/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "employeeId,employeeFirstName,employeeLastName,businessUnit,hireDateTime,employeeTitle")] Employee employee)
+        public ActionResult Create([Bind(Include = "recognitionID,employeeFirstName,employeeLastName,recognitionDetails,coreValue")] Recognition recognition)
         {
             if (ModelState.IsValid)
             {
-                db.Orders.Add(employee);
+                db.Customers.Add(recognition);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(employee);
+            return View(recognition);
         }
 
-        // GET: Employees/Edit/5
+        // GET: Recognitions/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Employee employee = db.Orders.Find(id);
-            if (employee == null)
+            Recognition recognition = db.Customers.Find(id);
+            if (recognition == null)
             {
                 return HttpNotFound();
             }
-            return View(employee);
+            return View(recognition);
         }
 
-        // POST: Employees/Edit/5
+        // POST: Recognitions/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "employeeId,employeeFirstName,employeeLastName,businessUnit,hireDateTime,employeeTitle")] Employee employee)
+        public ActionResult Edit([Bind(Include = "recognitionID,employeeFirstName,employeeLastName,recognitionDetails,coreValue")] Recognition recognition)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(employee).State = EntityState.Modified;
+                db.Entry(recognition).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(employee);
+            return View(recognition);
         }
 
-        // GET: Employees/Delete/5
+        // GET: Recognitions/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Employee employee = db.Orders.Find(id);
-            if (employee == null)
+            Recognition recognition = db.Customers.Find(id);
+            if (recognition == null)
             {
                 return HttpNotFound();
             }
-            return View(employee);
+            return View(recognition);
         }
 
-        // POST: Employees/Delete/5
+        // POST: Recognitions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Employee employee = db.Orders.Find(id);
-            db.Orders.Remove(employee);
+            Recognition recognition = db.Customers.Find(id);
+            db.Customers.Remove(recognition);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
