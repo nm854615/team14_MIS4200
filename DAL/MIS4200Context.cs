@@ -16,8 +16,8 @@ namespace team14_MIS4200.DAL
         // Include each object here. The value inside <> is the name of the class,
         // the value outside should generally be the plural of the class name
         // and is the name used to reference the entity in code
-        public DbSet<Employee> Orders { get; set; }
-        public DbSet<Recognition> Customers { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Recognition> Recognitions { get; set; }
 
     }
 }
