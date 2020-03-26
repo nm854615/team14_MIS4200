@@ -43,6 +43,7 @@ namespace team14_MIS4200.Controllers
                     string s2 = employeeNames[1];
                     empSearch = empSearch.Where(c => c.employeeFirstName.Contains(s2) && c.employeeLastName.Contains(s1)).OrderBy(c => c.employeeFirstName); // note that this uses &&, not ||
                 }
+                return View(empSearch.ToList());
             }
 
 
