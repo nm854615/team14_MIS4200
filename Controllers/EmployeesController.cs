@@ -77,7 +77,8 @@ namespace team14_MIS4200.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "employeeId,employeeFirstName,employeeLastName,businessUnit,hireDateTime,employeeTitle")] Employee employee)
-        {3
+        {
+            
             if (ModelState.IsValid)
             {
                 db.Employees.Add(employee);
