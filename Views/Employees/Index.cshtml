@@ -4,26 +4,11 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Centric Employees</h2>
+<h2>Index</h2>
 
-<div class="form-horizontal">
-    <div class="form-group">
-        <div class="col-md-9">
-            @using (Html.BeginForm("Index", "Employees", FormMethod.Get))
-            {
-                <p>
-                    Search users by criteria below:
-                    @Html.TextBox("searchString")
-                    <input type="submit" value="Search" />
-                </p>
-            }
-        </div>
-        <div class="col-md-3">
-            @Html.ActionLink("Create New", "Create")
-        </div>
-    </div>
-</div>
-
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <table class="table">
     <tr>
         <th>
@@ -33,13 +18,19 @@
             @Html.DisplayNameFor(model => model.employeeLastName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.businessUnit)
+            @Html.DisplayNameFor(model => model.birthday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.hireDateTime)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.employeeTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.operatingGroup)
         </th>
         <th></th>
     </tr>
@@ -53,13 +44,19 @@
             @Html.DisplayFor(modelItem => item.employeeLastName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.businessUnit)
+            @Html.DisplayFor(modelItem => item.birthday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.hireDateTime)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.employeeTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.operatingGroup)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.employeeId }) |

@@ -17,9 +17,15 @@ namespace team14_MIS4200.Models
         [Required(ErrorMessage = "Last Name is Required")]
         public string employeeLastName { get; set; }
 
-        [Display(Name = "Business Unit")]
+        [Display(Name = "Birthday")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "Required")]
-        public string businessUnit { get; set; }
+        public string birthday { get; set; }
+
+        [Display(Name = "Email")]
+        [Required(ErrorMessage = "Required")]
+        public string email { get; set; }
 
         [Display(Name = "Hire Date")]
         [DataType(DataType.Date)]
@@ -30,6 +36,10 @@ namespace team14_MIS4200.Models
         [Display(Name = "Employee Title")]
         [Required(ErrorMessage = "Required")]
         public string employeeTitle { get; set; }
+
+        [Display(Name = "Operating Group")]
+        [Required(ErrorMessage = "Required")]
+        public string operatingGroup { get; set; }
 
 
     }

@@ -16,37 +16,8 @@ namespace team14_MIS4200.Controllers
         private MIS4200Context db = new MIS4200Context();
 
         // GET: Employees
-        public ActionResult Index(string searchString)
+        public ActionResult Index()
         {
-            //var testusers = from u in db.Employees select u;
-            //if (!String.IsNullOrEmpty(searchString))
-            //{
-            //    testusers = testusers.Where(u => u.lastname.Contains(searchString)
-            //   || u.firstName.Contains(searchString));
-            //   // if here, users were found so view them
-            //   return View(testusers.ToList());
-            //}
-            //   return View(db.Employees.ToList());
-            var empSearch = from c in db.Employees select c;
-            string[] employeeNames;
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                employeeNames = searchString.Split(' '); // split the string on spaces
-                if (employeeNames.Count() == 1) // there is only one string so it could be
-                                                // either the first or last name
-                {
-                    empSearch = empSearch.Where(c => c.employeeFirstName.Contains(searchString) || c.employeeLastName.Contains(searchString)).OrderBy(c => c.employeeFirstName);
-                }
-                else //if you get here there were at least two strings so extract them and test
-                {
-                    string s1 = employeeNames[0];
-                    string s2 = employeeNames[1];
-                    empSearch = empSearch.Where(c => c.employeeFirstName.Contains(s2) && c.employeeLastName.Contains(s1)).OrderBy(c => c.employeeFirstName); // note that this uses &&, not ||
-                }
-                return View(empSearch.ToList());
-            }
-
-
             return View(db.Employees.ToList());
         }
 
@@ -76,9 +47,8 @@ namespace team14_MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "employeeId,employeeFirstName,employeeLastName,businessUnit,hireDateTime,employeeTitle")] Employee employee)
+        public ActionResult Create([Bind(Include = "employeeId,employeeFirstName,employeeLastName,birthday,email,hireDateTime,employeeTitle,operatingGroup")] Employee employee)
         {
-            
             if (ModelState.IsValid)
             {
                 db.Employees.Add(employee);
@@ -109,7 +79,7 @@ namespace team14_MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "employeeId,employeeFirstName,employeeLastName,businessUnit,hireDateTime,employeeTitle")] Employee employee)
+        public ActionResult Edit([Bind(Include = "employeeId,employeeFirstName,employeeLastName,birthday,email,hireDateTime,employeeTitle,operatingGroup")] Employee employee)
         {
             if (ModelState.IsValid)
             {
