@@ -47,7 +47,7 @@ namespace team14_MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "employeeId,employeeFirstName,employeeLastName,birthday,email,hireDateTime,employeeTitle,operatingGroup")] Employee employee)
+        public ActionResult Create([Bind(Include = "employeeId,employeeFirstName,employeeLastName,birthday,email,hireDateTime,title,group")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace team14_MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "employeeId,employeeFirstName,employeeLastName,birthday,email,hireDateTime,employeeTitle,operatingGroup")] Employee employee)
+        public ActionResult Edit([Bind(Include = "employeeId,employeeFirstName,employeeLastName,birthday,email,hireDateTime,title,group")] Employee employee)
         {
             if (ModelState.IsValid)
             {

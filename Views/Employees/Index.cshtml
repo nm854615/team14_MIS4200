@@ -27,10 +27,10 @@
             @Html.DisplayNameFor(model => model.hireDateTime)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.employeeTitle)
+            @Html.DisplayNameFor(model => model.title)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.operatingGroup)
+            @Html.DisplayNameFor(model => model.group)
         </th>
         <th></th>
     </tr>
@@ -53,10 +53,10 @@
             @Html.DisplayFor(modelItem => item.hireDateTime)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.employeeTitle)
+            @Html.DisplayFor(modelItem => item.title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.operatingGroup)
+            @Html.DisplayFor(modelItem => item.group)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.employeeId }) |
