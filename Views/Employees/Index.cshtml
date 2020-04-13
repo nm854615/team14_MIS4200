@@ -6,9 +6,26 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-6">
+            @using (Html.BeginForm("Index", "Employees", FormMethod.Get))
+            {
+                <p>
+                    Search by employee Name (first, last, both): @Html.TextBox("searchString")
+                    <input type="submit" value="Search" />
+                </p>
+            }
+        </div>
+        <div class="col-md-6">
+            @Html.ActionLink("Create New Customer", "Create")
+        </div>
+    </div>
+</div>
+     
+
+
+
 <table class="table">
     <tr>
         <th>
@@ -35,35 +52,34 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.employeeFirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.employeeLastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.birthday)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.hireDateTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.group)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.employeeId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.employeeId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.employeeId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.employeeFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.employeeLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.birthday)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hireDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.group)
+            </td>
+            <td>
+               
+            </td>
+        </tr>
+    }
 
 </table>

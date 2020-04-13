@@ -21,7 +21,7 @@
             @Html.DisplayNameFor(model => model.recognitionDetails)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.coreValue)
+            @Html.DisplayNameFor(model => model.CoreValue)
         </th>
         <th></th>
     </tr>
@@ -38,12 +38,12 @@
             @Html.DisplayFor(modelItem => item.recognitionDetails)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.coreValue)
+            @Html.DisplayFor(modelItem => item.CoreValue)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.recognitionID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.recognitionID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.recognitionID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.RecognitionID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RecognitionID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RecognitionID })
         </td>
     </tr>
 }

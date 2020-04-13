@@ -65,6 +65,7 @@ namespace team14_MIS4200.Models
     public class RegisterViewModel
     {
         [Required]
+        [RegularExpression(@"^[a-zA-Z0-9._%+-]+@centricconsulting.com", ErrorMessage = "Please enter a validl Centric Consulting email address")]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }

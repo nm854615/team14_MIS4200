@@ -19,5 +19,6 @@ namespace team14_MIS4200.DAL
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Recognition> Recognitions { get; set; }
 
+        public System.Data.Entity.DbSet<team14_MIS4200.Models.userDetails> userDetails { get; set; }
     }
 }

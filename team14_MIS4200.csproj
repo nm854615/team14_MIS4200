@@ -172,6 +172,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RecognitionsController.cs" />
+    <Compile Include="Controllers\userDetailsController.cs" />
     <Compile Include="DAL\MIS4200Context.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -182,6 +183,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Recognition.cs" />
+    <Compile Include="Models\userDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -252,6 +254,12 @@
     <Content Include="Views\Recognitions\Details.cshtml" />
     <Content Include="Views\Recognitions\Edit.cshtml" />
     <Content Include="Views\Recognitions\Index.cshtml" />
+    <Content Include="Views\userDetails\Create.cshtml" />
+    <Content Include="Views\userDetails\Delete.cshtml" />
+    <Content Include="Views\userDetails\Details.cshtml" />
+    <Content Include="Views\userDetails\Edit.cshtml" />
+    <Content Include="Views\userDetails\Index.cshtml" />
+    <Content Include="Views\userDetails\DuplicateUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
