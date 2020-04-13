@@ -9,7 +9,7 @@ namespace team14_MIS4200.Models
 {
     public class Recognition
     {
-        public int recognitionID { get; set; }
+        
         [Key] // the data annotation is necessary because there is a field called, ID,
               // in the table and it is not the PK for the record
         public int RecognitionID { get; set; }
