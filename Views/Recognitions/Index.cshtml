@@ -23,7 +23,10 @@
         <th>
             @Html.DisplayNameFor(model => model.award)
         </th>
-        <th></th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfRecognition)
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -40,6 +43,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.award)
         </td>
+        <td>
+            @Html.DisplayFor(model => item.DateOfRecognition)
+        </td>
+
+
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.RecognitionID }) |
             @Html.ActionLink("Details", "Details", new { id=item.RecognitionID }) |

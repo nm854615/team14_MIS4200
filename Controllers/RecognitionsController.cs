@@ -47,7 +47,7 @@ namespace team14_MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "recognitionID,employeeFirstName,employeeLastName,recognitionDetails,coreValue")] Recognition recognition)
+        public ActionResult Create([Bind(Include = "recognitionID,employeeFirstName,employeeLastName,recognitionDetails,award,DateOfRecognition")] Recognition recognition)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace team14_MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "recognitionID,employeeFirstName,employeeLastName,recognitionDetails,coreValue")] Recognition recognition)
+        public ActionResult Edit([Bind(Include = "recognitionID,employeeFirstName,employeeLastName,recognitionDetails,award,DateOfRecognition")] Recognition recognition)
         {
             if (ModelState.IsValid)
             {
