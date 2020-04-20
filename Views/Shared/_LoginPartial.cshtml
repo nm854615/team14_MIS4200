@@ -16,10 +16,19 @@
 
                 MIS4200Context db = new team14_MIS4200.DAL.MIS4200Context();
 
-                var userName = db.userDetails.Where(n => n.Email == userID).FirstOrDefault().firstName;
+                try
+                {
+                    var userName = db.userDetails.Where(n => n.Email == userID).FirstOrDefault().firstName;
+                    @Html.ActionLink("Hello " + userName + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                }
+                catch (Exception)
+                {
+                    @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+                  
+                }
 
             }
-            @Html.ActionLink("Hello " + userName + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            
         </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
     </ul>
