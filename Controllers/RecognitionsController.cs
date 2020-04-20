@@ -18,6 +18,11 @@ namespace team14_MIS4200.Controllers
         // GET: Recognitions
         public ActionResult Index()
         {
+            var rec = db.Recognitions.Where(r => r.ID == id);
+
+
+
+
             return View(db.Recognitions.ToList());
         }
 

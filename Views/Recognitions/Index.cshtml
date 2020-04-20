@@ -29,31 +29,37 @@
         </th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.employeeFirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.employeeLastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.recognitionDetails)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.award)
-        </td>
-        <td>
-            @Html.DisplayFor(model => item.DateOfRecognition)
-        </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.employeeFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.employeeLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.recognitionDetails)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.award)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.DateOfRecognition)
+            </td>
 
 
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RecognitionID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RecognitionID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RecognitionID })
-        </td>
-    </tr>
-}
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.RecognitionID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.RecognitionID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.RecognitionID })
+            </td>
+        </tr>
+    }
 
 </table>
+
+
+
+
+

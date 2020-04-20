@@ -6,9 +6,27 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-6">
+            @using (Html.BeginForm("Index", "Employees", FormMethod.Get))
+            {
+                <p>
+                    Search by employee Name (first, last, both): @Html.TextBox("searchString")
+                    <input type="submit" value="Search" />
+                </p>
+            }
+        </div>
+        <div class="col-md-6">
+            @Html.ActionLink("Create New Customer", "Create")
+        </div>
+    </div>
+</div>
+
+
+
+
+
 <table class="table">
     <tr>
         <th>
