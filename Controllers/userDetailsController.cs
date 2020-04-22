@@ -19,28 +19,14 @@ namespace team14_MIS4200.Controllers
         // GET: userDetails
         public ActionResult Index(string searchString)
         {
-            var empSearch = from o in db.userDetails select o;
-            string[] employeeNames; // declare the array to hold pieces of the string
-            if (!String.IsNullOrEmpty(searchString))
+            if (User.Identity.IsAuthenticated)
             {
-                employeeNames = searchString.Split(' '); // split the string on spaces
-                if (employeeNames.Count() == 1)  // there is only one string so it could be
-                                                 // either the first or last name 
-                {
-                    empSearch = empSearch.Where(c => c.firstName.Contains(searchString) ||
-                    c.lastName.Contains(searchString)).OrderBy(c => c.firstName);
-                }
-                else
-                {
-                    string s1 = employeeNames[0];
-                    string s2 = employeeNames[1];
-                    empSearch = empSearch.Where(c => c.firstName.Contains(s2) && c.lastName.Contains(s1)).OrderBy(c => c.firstName); // note that this uses &&, not ||
-                }
-
-
+                return View(db.userDetails.ToList());
             }
-
-            return View(empSearch.ToList());
+            else
+            {
+                return View("NotAuthenticated");
+            }
         }
 
         // GET: userDetails/Details/5
