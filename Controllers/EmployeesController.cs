@@ -16,30 +16,11 @@ namespace team14_MIS4200.Controllers
         private MIS4200Context db = new MIS4200Context();
 
         // GET: Employees
-        public ActionResult Index(string searchString)
+        public ActionResult Index(string searchStrings)
         {
-            var empSearch = from o in db.Employees select o;
-            string[] employeeNames; // declare the array to hold pieces of the string
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                employeeNames = searchString.Split(' '); // split the string on spaces
-                if (employeeNames.Count() == 1)  // there is only one string so it could be
-                                                 // either the first or last name 
-                {
-                    empSearch = empSearch.Where(c => c.employeeFirstName.Contains(searchString) ||
-                    c.employeeLastName.Contains(searchString)).OrderBy(c => c.employeeFirstName);
-                }
-                else
-                {
-                    string s1 = employeeNames[0];
-                    string s2 = employeeNames[1];
-                    empSearch = empSearch.Where(c => c.employeeFirstName.Contains(s2) && c.employeeLastName.Contains(s1)).OrderBy(c => c.employeeFirstName); // note that this uses &&, not ||
-                }
 
 
-            }
-
-            return View(empSearch.ToList());
+            return View(db.Employees.ToList());
         }
 
         // GET: Employees/Details/5

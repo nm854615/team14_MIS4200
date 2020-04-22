@@ -19,6 +19,28 @@ namespace team14_MIS4200.Controllers
         // GET: userDetails
         public ActionResult Index(string searchString)
         {
+            var empSearch = from o in db.userDetails select o;
+            string[] empNames; // declare the array to hold pieces of the string
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                empNames = searchString.Split(' '); // split the string on spaces
+                if (empNames.Count() == 1) // there is only one string so it could be
+                                            // either the first or last name
+                {
+                    empSearch = empSearch.Where(c => c.firstName.Contains(searchString) ||
+                   c.lastName.Contains(searchString)).OrderBy(c => c.lastName);
+                }
+                else //if you get here there were at least two strings so extract them and test
+                {
+                    string s1 = empNames[0];
+                    string s2 = empNames[1];
+                    empSearch = empSearch.Where(c => c.firstName.Contains(s1) &&
+                   c.lastName.Contains(s2)).OrderBy(c => c.firstName); // note that this uses &&, not ||
+                }
+                return View(empSearch.ToList());
+            }
+
+
             if (User.Identity.IsAuthenticated)
             {
                 return View(db.userDetails.ToList());
