@@ -14,10 +14,38 @@ namespace team14_MIS4200.Controllers
     public class RecognitionsController : Controller
     {
         private MIS4200Context db = new MIS4200Context();
+        private Guid id;
 
         // GET: Recognitions
         public ActionResult Index()
         {
+            var rec = db.Recognitions.Where(r => r.ID == id);
+            var recList = rec.ToList();
+            ViewBag.rec = recList;
+            var totalCnt = recList.Count(); //counts all the recognitions for that person
+            var rec1Cnt = recList.Where(r => r.award == Recognition.CoreValue.Excellence).Count();
+            // counts all the Excellence recognitions
+            // notice how the Enum values are references, class.enum.value
+            // the next two lines show another way to do the same counting
+            var rec2Cnt = recList.Where(r => r.award == Recognition.CoreValue.Culture).Count();
+            var rec3Cnt = recList.Where(r => r.award == Recognition.CoreValue.Integrity).Count();
+            var rec4Cnt = recList.Where(r => r.award == Recognition.CoreValue.Stewardship).Count();
+            var rec5Cnt = recList.Where(r => r.award == Recognition.CoreValue.Innovate).Count();
+            var rec6Cnt = recList.Where(r => r.award == Recognition.CoreValue.Passion).Count();
+            var rec7Cnt = recList.Where(r => r.award == Recognition.CoreValue.Balance).Count();
+            // copy the values into the ViewBag
+            ViewBag.total = totalCnt;
+            ViewBag.Excellence = rec1Cnt;
+            ViewBag.Culture = rec2Cnt;
+            ViewBag.Integrity = rec3Cnt;
+            ViewBag.Stewardship = rec4Cnt;
+            ViewBag.Innovate = rec5Cnt;
+            ViewBag.Passion = rec6Cnt;
+            ViewBag.Balance = rec7Cnt;
+
+
+
+
             if (User.Identity.IsAuthenticated)
             {
                 return View(db.Recognitions.ToList());
@@ -26,6 +54,9 @@ namespace team14_MIS4200.Controllers
             {
                 return View("NotAuthenticated");
             }
+
+            
+
         }
 
         // GET: Recognitions/Details/5
